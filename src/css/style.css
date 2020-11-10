@@ -64,12 +64,15 @@
     word-break: break-all;
 }
 
-.taskPin {
-    text-decoration: none;
+.pinned {
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
     cursor: pointer;
     color: red;
     font-size: 30px;
     margin: 0 10px;
+
 }
 
 
