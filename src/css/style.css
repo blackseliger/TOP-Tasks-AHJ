@@ -45,9 +45,10 @@
     padding: 5px;
 }
 
-.noPinned, .messageAllTask_hidden, .warning_hidden {
+.messagePin_hidden, .messageAllTask_hidden, .warning_hidden, div.hiddenTasks {
     display: none;
 }
+
 .pinnedTask {
     display: flex;
     border: 1px solid gray;
@@ -80,7 +81,7 @@
     margin-bottom: 10px;
 }
 
-.messageAllTask {
+.messageAllTask, .messagePinnedTask {
     text-align: center;
     padding: 5px;
     background-color: chocolate;
