@@ -2,6 +2,7 @@
 /* eslint-disable linebreak-style */
 import addTasksAllList from './addTasksAlllist';
 import { hiddenAllTasks, showAllTasks } from './hiddenTasks';
+import messageAllTaskAction from './messageAllTAsk';
 import { messagePinnedAddHidden, messagePinnedRemoveHidden } from './messagePinnedTask';
 import removeFoundTask from './removeFoundTask';
 
@@ -12,6 +13,11 @@ const pinnedTasks = document.querySelector('.pinnedTasks');
 
 const commonTaskArray = [];
 
+
+document.addEventListener('DOMContentLoaded', () => {
+  messageAllTaskAction('show');
+})
+
 tasksControl.addEventListener('submit', (e) => {
   e.preventDefault();
   const element = e.currentTarget;
@@ -21,8 +27,8 @@ tasksControl.addEventListener('submit', (e) => {
     const tasksInputValue = tasksInput.value.toLowerCase();
     if (commonTaskArray.includes(tasksInputValue) === false) {
       addTasksAllList(tasksInputValue);
+      messageAllTaskAction('remove');
       commonTaskArray.push(tasksInputValue);
-      console.log(commonTaskArray);
     }
   }
   element.reset();
@@ -34,6 +40,7 @@ tasksControl.addEventListener('input', (e) => {
   const checkOldTask = commonTaskArray.find((element) => element.includes(inputText));
   if (checkOldTask !== undefined) {
     hiddenAllTasks();
+    messageAllTaskAction('remove');
     allTasksList.insertAdjacentHTML('beforeend', `<div class="pinnedTask foundTask">
       <div class="pinnedTaskName">
       <label>
@@ -42,6 +49,9 @@ tasksControl.addEventListener('input', (e) => {
       </label>
       </div>
   </div>`);
+  } else {
+    messageAllTaskAction('show');
+    removeFoundTask();
   }
 });
 
@@ -51,18 +61,11 @@ allTasksList.addEventListener('click', (e) => {
     const pinnedCheckBox = target.closest('.pinnedTask').querySelector('.pinned');
     if (pinnedCheckBox.checked === true) {
       const pinnedElement = target.closest('.pinnedTask');
-      const pinnedText = pinnedElement.innerText;
-      console.log(pinnedText);
+      const pinnedText = pinnedElement.innerText.trim();
       const pinnedIndex = commonTaskArray.indexOf(pinnedText);
-      console.log(commonTaskArray.includes(pinnedText));
-      const test1 = commonTaskArray.findIndex((element) => element === `${pinnedText}`);
-      console.log(test1);
-      console.log(commonTaskArray);
-      // Постоянно возвращает -1 или false. Не могу понять, что тут не так :\
       if (pinnedIndex > -1) {
         commonTaskArray.splice(pinnedIndex, 1);
       }
-
       pinnedTasks.insertAdjacentElement('beforeend', pinnedElement);
       messagePinnedAddHidden();
     }
@@ -77,6 +80,7 @@ pinnedTasks.addEventListener('click', (e) => {
       const pinnedElement = target.closest('.pinnedTask');
       const pinnedText = pinnedElement.innerText;
       commonTaskArray.push(pinnedText);
+
       allTasksList.insertAdjacentElement('beforeend', pinnedElement);
       messagePinnedRemoveHidden();
     }
