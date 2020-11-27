@@ -8,5 +8,4 @@ const warningsAddRemove = function () {
   }
 };
 
-
 export default warningsAddRemove;

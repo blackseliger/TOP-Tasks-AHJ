@@ -1,4 +1,3 @@
-
 const messagePinnedTask = document.querySelector('.messagePinnedTask');
 const pinnedTaskTable = document.querySelector('.pinnedTasks');
 

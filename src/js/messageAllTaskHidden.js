@@ -1,4 +1,3 @@
-
 const messageAllTask = document.querySelector('.messageAllTask');
 
 const messageAllTaskHidden = function () {
@@ -8,6 +7,5 @@ const messageAllTaskHidden = function () {
     messageAllTask.classList.remove('messageAllTask_hidden');
   }
 };
-
 
 export default messageAllTaskHidden;

@@ -13,10 +13,9 @@ const pinnedTasks = document.querySelector('.pinnedTasks');
 
 const commonTaskArray = [];
 
-
 document.addEventListener('DOMContentLoaded', () => {
   messageAllTaskAction('show');
-})
+});
 
 tasksControl.addEventListener('submit', (e) => {
   e.preventDefault();
