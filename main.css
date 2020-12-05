@@ -1,0 +1,99 @@
+.tasks {
+    width: 400px;
+    margin: auto;
+    border: solid goldenrod 2px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+
+}
+
+.tasks::after {
+    content: "";
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: sandybrown;
+    opacity: 0.1;
+}
+
+.tasks__input {
+    width: 200px;
+    padding: 10px;
+    border-radius: 25px;
+    border: 1px solid gray;
+    background-color: lemonchiffon;
+}
+
+.warning {
+    border: 2px solid red;
+    margin: 10px;
+}
+
+.message_warning {
+    padding: 5px;
+}
+
+.header {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: inherit;
+    padding: 5px;
+}
+
+.messagePin_hidden, .messageAllTask_hidden, .warning_hidden, div.hiddenTasks {
+    display: none;
+}
+
+.pinnedTask {
+    display: flex;
+    border: 1px solid gray;
+    border-radius: 25px;
+    height: 40px;
+    overflow: auto;
+    width: 100%;
+    background-color: lemonchiffon;
+}
+
+.pinnedTaskName {
+    padding: 10px;
+    margin: auto;
+    word-break: break-all;
+}
+
+.pinned {
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    color: red;
+    font-size: 30px;
+    margin: 0 10px;
+
+}
+
+
+.all_Tasks_list {
+    margin-bottom: 10px;
+}
+
+.messageAllTask, .messagePinnedTask {
+    text-align: center;
+    padding: 5px;
+    background-color: chocolate;
+    font-style: normal;
+    font-size: larger;
+    border-radius: 25px;
+    border: 0px;
+    margin-bottom: 5px;    
+}
+
+
+
+
+
+
